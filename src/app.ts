@@ -5,9 +5,10 @@ import { UserEntity } from "./modules/user/user.entity";
 import mongoose from 'mongoose';
 import { config } from "./config/config";
 import Logging from "./libs/logging";
+import cors from 'cors';
 const app = express();
 app.use(express.json());
-const port = 3000;
+const port = 9000;
 
 
 
@@ -31,12 +32,14 @@ try{
     }).catch((err) => console.log("ConnectDB error!"))
 
     mongoose
-    .connect(`mongodb://root:111111@localhost:27017/?authMechanism=DEFAULT`, { retryWrites: true, w: 'majority' })
+    .connect(config.mongo.url, { retryWrites: true, w: 'majority', dbName: config.mongo.db })
     .then(() => {
         Logging.info('Mongo connected successfully.');
         StartServer();
     })
     const StartServer = () => {
+
+        app.use(cors())
         app.listen(port, () => {
             new Router(app)
         })

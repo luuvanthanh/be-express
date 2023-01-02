@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
-import Book from './user.model';
 import mongoose from 'mongoose';
 import { UserService } from "./user-service"
+import UserModel from "../../models/user.model";
 
 export class UserController{
     resourceService: any
@@ -11,10 +11,10 @@ export class UserController{
     }
 
     async index(req: Request, res: Response){
-        const book = new Book({
-            _id: new mongoose.Types.ObjectId(),
-            author: 'tho bo',
-            title: '111111'
+        const book = new UserModel({
+            // _id: new mongoose.Types.ObjectId(),
+            email: 'buithanhtho15ig@gmail.com',
+            name: 'thobui1'
         });
     
         return book
