@@ -26,10 +26,11 @@ export const AppDataSource = new DataSource({
     migrations: [],
 })
 
+
 try{
-    AppDataSource.initialize().then(() => {
-        Logging.info('DB Connected!')
-    }).catch((err) => console.log("ConnectDB error!"))
+    // AppDataSource.initialize().then(() => {
+    //     Logging.info('DB Connected!')
+    // }).catch((err) => console.log("ConnectDB error!"))
 
     mongoose
     .connect(config.mongo.url, { retryWrites: true, w: 'majority', dbName: config.mongo.db })

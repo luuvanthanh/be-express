@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const MONGO_USERNAME = process.env.MONGO_USERNAME || 'root';
-const MONGO_PASSWORD = process.env.MONGO_PASSWORD || '111111';
+const MONGO_PASSWORD = process.env.MONGO_PASSWORD || '11111';
 const MONGO_URL = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@localhost:27017`;
 const MONGO_DB ='asana'
 
